@@ -10,6 +10,8 @@ export default function AddArticlePage() {
   const [title, setTitle] = useState('')
   const [abstractText, setAbstractText] = useState('')
   const [body, setBody] = useState('')
+  const [authorName, setAuthorName] = useState('')
+  const [categoryName, setCategoryName] = useState('')
   const [submitting, setSubmitting] = useState(false)
 
   async function onSubmit(e) {
@@ -17,7 +19,7 @@ export default function AddArticlePage() {
 
     setSubmitting(true)
     try {
-      const created = await createArticle({ title, abstractText, body })
+      const created = await createArticle({ title, abstractText, body, authorName, categoryName })
       toast.success('Article added successfully.')
 
       const nextTitle = created?.title || title
@@ -62,6 +64,26 @@ export default function AddArticlePage() {
             rows={10}
             value={body}
             onChange={(e) => setBody(e.target.value)}
+            disabled={submitting}
+          />
+        </label>
+
+        <label>
+          Author
+          <input
+            name="authorName"
+            value={authorName}
+            onChange={(e) => setAuthorName(e.target.value)}
+            disabled={submitting}
+          />
+        </label>
+
+        <label>
+          Category
+          <input
+            name="categoryName"
+            value={categoryName}
+            onChange={(e) => setCategoryName(e.target.value)}
             disabled={submitting}
           />
         </label>

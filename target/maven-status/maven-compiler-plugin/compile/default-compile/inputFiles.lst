@@ -9,10 +9,12 @@ D:\UT\IE\Projects\Internet-Engineering\src\main\java\ir\ac\ut\ece\ie\ApiApplicat
 D:\UT\IE\Projects\Internet-Engineering\src\main\java\ir\ac\ut\ece\ie\app\Article.java
 D:\UT\IE\Projects\Internet-Engineering\src\main\java\ir\ac\ut\ece\ie\app\ArticleRepository.java
 D:\UT\IE\Projects\Internet-Engineering\src\main\java\ir\ac\ut\ece\ie\app\ArticleService.java
+D:\UT\IE\Projects\Internet-Engineering\src\main\java\ir\ac\ut\ece\ie\app\Author.java
+D:\UT\IE\Projects\Internet-Engineering\src\main\java\ir\ac\ut\ece\ie\app\AuthorRepository.java
+D:\UT\IE\Projects\Internet-Engineering\src\main\java\ir\ac\ut\ece\ie\app\Category.java
+D:\UT\IE\Projects\Internet-Engineering\src\main\java\ir\ac\ut\ece\ie\app\CategoryRepository.java
 D:\UT\IE\Projects\Internet-Engineering\src\main\java\ir\ac\ut\ece\ie\app\DuplicateTitleException.java
-D:\UT\IE\Projects\Internet-Engineering\src\main\java\ir\ac\ut\ece\ie\app\InMemoryArticleRepository.java
 D:\UT\IE\Projects\Internet-Engineering\src\main\java\ir\ac\ut\ece\ie\app\SearchResult.java
-D:\UT\IE\Projects\Internet-Engineering\src\main\java\ir\ac\ut\ece\ie\config\AppConfig.java
 D:\UT\IE\Projects\Internet-Engineering\src\main\java\ir\ac\ut\ece\ie\dynamiccontentserver\DynamicContentServer.java
 D:\UT\IE\Projects\Internet-Engineering\src\main\java\ir\ac\ut\ece\ie\dynamiccontentserver\Page3.java
 D:\UT\IE\Projects\Internet-Engineering\src\main\java\ir\ac\ut\ece\ie\dynamiccontentserver\Page4.java

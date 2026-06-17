@@ -29,3 +29,5 @@ replay_pid*
 *.iml
 *.iws
 out/
+/target
+/target/*

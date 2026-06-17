@@ -68,6 +68,8 @@ export default function ArticlePage() {
         <>
           <h1>{article.title}</h1>
           <p className="muted">Published at: {formatDate(article.createdAt)}</p>
+          <p className="muted">Author: {article.authorName || 'Unknown Author'}</p>
+          <p className="muted">Category: {article.categoryName || 'General'}</p>
 
           <h2>Abstract</h2>
           <p>{article.abstractText}</p>

@@ -31,7 +31,7 @@ public final class AddArticleSubmitHandler implements Handler {
         String body = form.get("body");
 
         try {
-            service.addArticle(title, abstractText, body);
+            service.addArticle(title, abstractText, body, "Unknown Author", "General");
         } catch (IllegalArgumentException ex) {
             return HttpResponse.html(400, "Bad Request", Pages.addFormPage(nvl(title), nvl(abstractText), nvl(body), ex.getMessage()));
         } catch (DuplicateTitleException ex) {

@@ -29,8 +29,10 @@ public class ArticleController {
         String title = request == null ? null : request.title();
         String abstractText = request == null ? null : request.abstractText();
         String body = request == null ? null : request.body();
+        String authorName = request == null ? null : request.authorName();
+        String categoryName = request == null ? null : request.categoryName();
 
-        service.addArticle(title, abstractText, body);
+        service.addArticle(title, abstractText, body, authorName, categoryName);
 
         String normalizedTitle = title == null ? null : title.trim();
         Article created = service.getByTitle(normalizedTitle);

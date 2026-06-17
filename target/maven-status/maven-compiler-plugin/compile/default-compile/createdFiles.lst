@@ -1,6 +1,6 @@
 ir\ac\ut\ece\ie\dynamiccontentserver\DynamicContentServer.class
 ir\ac\ut\ece\ie\api\dto\SearchResponseDto.class
-ir\ac\ut\ece\ie\config\AppConfig.class
+ir\ac\ut\ece\ie\app\Category.class
 ir\ac\ut\ece\ie\app\DuplicateTitleException.class
 ir\ac\ut\ece\ie\http\HttpResponse.class
 ir\ac\ut\ece\ie\dynamiccontentserver\Page3.class
@@ -10,7 +10,7 @@ ir\ac\ut\ece\ie\web\AddArticleFormHandler.class
 ir\ac\ut\ece\ie\app\SearchResult.class
 ir\ac\ut\ece\ie\api\ArticleController.class
 ir\ac\ut\ece\ie\http\HttpServer.class
-ir\ac\ut\ece\ie\app\InMemoryArticleRepository.class
+ir\ac\ut\ece\ie\app\AuthorRepository.class
 ir\ac\ut\ece\ie\web\html\Pages.class
 ir\ac\ut\ece\ie\app\ArticleRepository.class
 ir\ac\ut\ece\ie\main\Main.class
@@ -19,6 +19,7 @@ ir\ac\ut\ece\ie\app\Article.class
 ir\ac\ut\ece\ie\http\routing\Router.class
 ir\ac\ut\ece\ie\staticcontentserver\StaticContentServer.class
 ir\ac\ut\ece\ie\api\dto\CreateArticleRequest.class
+ir\ac\ut\ece\ie\app\Author.class
 ir\ac\ut\ece\ie\dynamiccontentserver\Page4.class
 ir\ac\ut\ece\ie\web\ArticleHandler.class
 ir\ac\ut\ece\ie\http\HttpRequestParser.class
@@ -30,4 +31,5 @@ ir\ac\ut\ece\ie\api\dto\ArticleDto.class
 ir\ac\ut\ece\ie\api\exception\NotFoundException.class
 ir\ac\ut\ece\ie\ApiApplication.class
 ir\ac\ut\ece\ie\web\HomeHandler.class
+ir\ac\ut\ece\ie\app\CategoryRepository.class
 ir\ac\ut\ece\ie\http\routing\Handler.class
