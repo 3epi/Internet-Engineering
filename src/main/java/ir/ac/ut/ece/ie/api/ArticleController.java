@@ -25,14 +25,20 @@ public class ArticleController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ArticleDto> create(@RequestBody CreateArticleRequest request) {
+    public ResponseEntity<ArticleDto> create(@RequestBody CreateArticleRequest request,
+                                             jakarta.servlet.http.HttpServletRequest servletRequest) {
         String title = request == null ? null : request.title();
         String abstractText = request == null ? null : request.abstractText();
         String body = request == null ? null : request.body();
-        String authorName = request == null ? null : request.authorName();
         String categoryName = request == null ? null : request.categoryName();
 
-        service.addArticle(title, abstractText, body, authorName, categoryName);
+        ir.ac.ut.ece.ie.app.Author authUser = (ir.ac.ut.ece.ie.app.Author) servletRequest.getAttribute("authUser");
+        if (authUser != null) {
+            service.addArticleForAuthor(title, abstractText, body, authUser, categoryName);
+        } else {
+            String authorName = request == null ? null : request.authorName();
+            service.addArticle(title, abstractText, body, authorName, categoryName);
+        }
 
         String normalizedTitle = title == null ? null : title.trim();
         Article created = service.getByTitle(normalizedTitle);

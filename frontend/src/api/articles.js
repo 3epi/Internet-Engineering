@@ -42,12 +42,17 @@ export async function searchArticles(q) {
   return await requestJson(`/api/articles/search?q=${encoded}`, { method: 'GET' })
 }
 
-export async function createArticle(payload) {
+export async function createArticle(token, payload) {
+  const headers = {
+    'Content-Type': 'application/json',
+  }
+  if (token) {
+    headers.Authorization = `Bearer ${token}`
+  }
+
   return await requestJson('/api/articles', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers,
     body: JSON.stringify(payload),
   })
 }

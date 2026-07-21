@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-
 import { createArticle } from '../api/articles.js'
+import { useAuth } from '../context/AuthContext.jsx'
 
 export default function AddArticlePage() {
   const navigate = useNavigate()
+  const { token, user } = useAuth()
 
   const [title, setTitle] = useState('')
   const [abstractText, setAbstractText] = useState('')
   const [body, setBody] = useState('')
-  const [authorName, setAuthorName] = useState('')
   const [categoryName, setCategoryName] = useState('')
   const [submitting, setSubmitting] = useState(false)
 
@@ -19,7 +19,7 @@ export default function AddArticlePage() {
 
     setSubmitting(true)
     try {
-      const created = await createArticle({ title, abstractText, body, authorName, categoryName })
+      const created = await createArticle(token, { title, abstractText, body, categoryName })
       toast.success('Article added successfully.')
 
       const nextTitle = created?.title || title
@@ -37,12 +37,23 @@ export default function AddArticlePage() {
 
       <form onSubmit={onSubmit}>
         <label>
+          Author
+          <input
+            name="authorName"
+            value={user?.name || ''}
+            disabled
+            className="read-only-input"
+          />
+        </label>
+
+        <label>
           Title
           <input
             name="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             disabled={submitting}
+            required
           />
         </label>
 
@@ -54,6 +65,7 @@ export default function AddArticlePage() {
             value={abstractText}
             onChange={(e) => setAbstractText(e.target.value)}
             disabled={submitting}
+            required
           />
         </label>
 
@@ -65,16 +77,7 @@ export default function AddArticlePage() {
             value={body}
             onChange={(e) => setBody(e.target.value)}
             disabled={submitting}
-          />
-        </label>
-
-        <label>
-          Author
-          <input
-            name="authorName"
-            value={authorName}
-            onChange={(e) => setAuthorName(e.target.value)}
-            disabled={submitting}
+            required
           />
         </label>
 
@@ -89,7 +92,7 @@ export default function AddArticlePage() {
         </label>
 
         <button type="submit" disabled={submitting}>
-          Add
+          {submitting ? 'Adding...' : 'Add'}
         </button>
       </form>
     </div>

@@ -48,6 +48,28 @@ public class ArticleService {
         articleRepository.save(article);
     }
 
+    @Transactional
+    public void addArticleForAuthor(String title, String abstractText, String body, Author author, String categoryName) {
+        String normalizedTitle = title == null ? "" : title.trim();
+        String normalizedAbstract = abstractText == null ? "" : abstractText.trim();
+        String normalizedBody = body == null ? "" : body.trim();
+        String normCategory = categoryName == null || categoryName.trim().isEmpty() ? "General" : categoryName.trim();
+
+        if (normalizedTitle.isEmpty()) {
+            throw new IllegalArgumentException("Title is required.");
+        }
+
+        if (articleRepository.findByTitle(normalizedTitle).isPresent()) {
+            throw new DuplicateTitleException("Article with this title already exists.");
+        }
+
+        Category category = categoryRepository.findByName(normCategory)
+                .orElseGet(() -> categoryRepository.save(new Category(normCategory)));
+
+        Article article = new Article(normalizedTitle, normalizedAbstract, normalizedBody, Instant.now(), author, category);
+        articleRepository.save(article);
+    }
+
     @Transactional(readOnly = true)
     public Article getByTitle(String title) {
         if (title == null) return null;
