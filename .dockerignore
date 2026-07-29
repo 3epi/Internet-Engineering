@@ -1,0 +1,31 @@
+# Secrets — never include in build context
+.env
+*.env
+
+# Build artifacts
+target/
+*.jar
+*.war
+*.class
+
+# IDE
+.idea/
+*.iml
+*.iws
+
+# Version control
+.git/
+.gitignore
+.dockerignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Archives (course deliverables)
+*.rar
+*.zip
+*.tar.gz
+
+# Logs
+*.log

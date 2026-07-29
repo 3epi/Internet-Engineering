@@ -23,6 +23,10 @@
 hs_err_pid*
 replay_pid*
 
+# Environment variables (secrets — never commit)
+.env
+*.env
+
 
 #Intellij IDEA
 .idea/
@@ -31,3 +35,6 @@ replay_pid*
 out/
 /target
 /target/*
+
+
+.vscode/
